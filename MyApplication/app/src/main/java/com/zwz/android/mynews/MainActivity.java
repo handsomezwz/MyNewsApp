@@ -1,8 +1,10 @@
 package com.zwz.android.mynews;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Window;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
@@ -17,6 +19,7 @@ public class MainActivity extends SlidingFragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
         //添加侧边框
@@ -46,5 +49,22 @@ public class MainActivity extends SlidingFragmentActivity {
         transaction.commit();
     }
 
+    /**
+     * 获取侧边栏对象
+     */
+    public LeftMenuFragment getLeftMenuFragment(){
+        FragmentManager fm = getSupportFragmentManager();
+        LeftMenuFragment fragment = (LeftMenuFragment) fm.findFragmentByTag(TAG_LEFT_MENU);
+        return fragment;
+    }
+
+    /**
+     * 获取主界面对象
+     */
+    public ContentFragment getContentFragment(){
+        FragmentManager fm = getSupportFragmentManager();
+        ContentFragment fragment = (ContentFragment) fm.findFragmentByTag(TAG_CONTENT);
+        return fragment;
+    }
 
 }

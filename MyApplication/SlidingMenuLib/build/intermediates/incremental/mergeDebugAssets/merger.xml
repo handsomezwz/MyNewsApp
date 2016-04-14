@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\zwz\MyApplication\SlidingMenuLib\assets"/></dataSet><dataSet config="debug"><source path="C:\zwz\MyApplication\SlidingMenuLib\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\zwz\projects\MyNewsApp\MyApplication\SlidingMenuLib\assets"/></dataSet><dataSet config="debug"><source path="C:\zwz\projects\MyNewsApp\MyApplication\SlidingMenuLib\src\debug\assets"/></dataSet></merger>

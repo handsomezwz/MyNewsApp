@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 public class ContentFragment extends BaseFragment {
     private RadioGroup rb_group;
-    private ArrayList<BaseViewPager> pagerArrayList;
+    private ArrayList<BaseViewPager> PagerArrayList;
     private ViewPager vp_content;
     private View view;
 
@@ -33,12 +33,12 @@ public class ContentFragment extends BaseFragment {
 
     @Override
     public void initData() {
-        pagerArrayList = new ArrayList<BaseViewPager>();
-        pagerArrayList.add(new HomePager(mActivity));
-        pagerArrayList.add(new NewsPager(mActivity));
-        pagerArrayList.add(new SmartPager(mActivity));
-        pagerArrayList.add(new GovernmentPager(mActivity));
-        pagerArrayList.add(new SettingPager(mActivity));
+        PagerArrayList = new ArrayList<BaseViewPager>();
+        PagerArrayList.add(new HomePager(mActivity));
+        PagerArrayList.add(new NewsPager(mActivity));
+        PagerArrayList.add(new SmartPager(mActivity));
+        PagerArrayList.add(new GovernmentPager(mActivity));
+        PagerArrayList.add(new SettingPager(mActivity));
 
         vp_content.setAdapter(new ContentAdapter());
 
@@ -55,39 +55,39 @@ public class ContentFragment extends BaseFragment {
                          * vp_content是ViewPager容器，第一个参数设置当前Pager，
                          *第二个参数是切换页面是否以滑动的动画进行
                          *
-                         * pagerArrayList.get(0).initData();
-                         * pagerArrayList是一个Pager的集合，得到相应的Pager后初始化数据
+                         * PagerArrayList.get(0).initData();
+                         * PagerArrayList是一个Pager的集合，得到相应的Pager后初始化数据
                          */
                         vp_content.setCurrentItem(0, false);
-                        pagerArrayList.get(0).initData();
+                        PagerArrayList.get(0).initData();
 
                         setSlidingMenuEnable(true);
                         break;
                     case R.id.rb_news:
                         vp_content.setCurrentItem(1, false);
-                        pagerArrayList.get(1).initData();
+                        PagerArrayList.get(1).initData();
                         setSlidingMenuEnable(false);
                         break;
                     case R.id.rb_smart:
                         vp_content.setCurrentItem(2, false);
-                        pagerArrayList.get(2).initData();
+                        PagerArrayList.get(2).initData();
                         setSlidingMenuEnable(false);
                         break;
                     case R.id.rb_zw:
                         vp_content.setCurrentItem(3, false);
-                        pagerArrayList.get(3).initData();
+                        PagerArrayList.get(3).initData();
                         setSlidingMenuEnable(false);
                         break;
                     case R.id.rb_setting:
                         vp_content.setCurrentItem(4, false);
-                        pagerArrayList.get(4).initData();
+                        PagerArrayList.get(4).initData();
                         setSlidingMenuEnable(true);
                         break;
                 }
             }
         });
         //进入程序后一定初始化首页的界面
-        pagerArrayList.get(0).initData();
+        PagerArrayList.get(0).initData();
         setSlidingMenuEnable(true);
 
     }
@@ -105,11 +105,16 @@ public class ContentFragment extends BaseFragment {
         }
     }
 
+    //获取BaseViewPager
+    public NewsPager getNewsCenterPager() {
+        return (NewsPager) PagerArrayList.get(1);
+    }
+
     private class ContentAdapter extends PagerAdapter {
 
         @Override
         public int getCount() {
-            return pagerArrayList.size();
+            return PagerArrayList.size();
         }
 
         @Override
@@ -120,7 +125,7 @@ public class ContentFragment extends BaseFragment {
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
 
-            BaseViewPager pager = pagerArrayList.get(position);
+            BaseViewPager pager = PagerArrayList.get(position);
             container.addView(pager.mRootView);
 
             return pager.mRootView;

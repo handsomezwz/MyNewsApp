@@ -22,4 +22,11 @@ class NoScrollViewPager extends ViewPager {
         //重写了ViewPager的动画滑动效果，使其不能用
         return true;
     }
+
+    //决定事件是否中断，因为我们项目中是一个viewPager中嵌套一个viewPager
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        //不拦截事件，让嵌套的viewPager有机会响应触摸事件
+        return false;
+    }
 }
