@@ -27,7 +27,7 @@ import com.zwz.android.mynews.base.BaseMenuDetailPager;
 import com.zwz.android.mynews.domain.PhotoBean;
 import com.zwz.android.mynews.global.Contants;
 import com.zwz.android.mynews.utiles.CacheUtils;
-import com.zwz.android.mynews.utiles.PreSharedPreferences;
+import com.zwz.android.mynews.utiles.bitmap.MyBitmapUtils;
 
 import java.util.ArrayList;
 
@@ -114,11 +114,11 @@ public class PhotoMenuDetailPager extends BaseMenuDetailPager {
 
     class PhotoAdapter extends BaseAdapter {
 
-        private BitmapUtils mBitmapUtils;
+        private MyBitmapUtils mBitmapUtils;
 
         public PhotoAdapter() {
-            mBitmapUtils = new BitmapUtils(mActivity);
-            mBitmapUtils.configDefaultLoadingImage(R.drawable.news_pic_default);
+            mBitmapUtils = new MyBitmapUtils();
+            //mBitmapUtils.configDefaultLoadingImage(R.drawable.news_pic_default);
         }
 
         @Override

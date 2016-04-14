@@ -255,7 +255,7 @@ public class TabDetailPager extends BaseMenuDetailPager {
                         }
                         mViewPager.setCurrentItem(currentItem);
                         mHandler.sendEmptyMessageDelayed(0, 2000);
-                        Log.d("mHandle","开始广告咯");
+                        //Log.d("mHandle","开始广告咯");
                     }
                 };
                 //延时2秒切换广告条
